@@ -1,0 +1,70 @@
+@import "./reset";
+@import "./variable";
+
+$font-weight: (
+	"regular": 400,
+	"medium": 500,
+	"bold": 700
+);
+$text-size: (
+	"xl": 5rem,
+	"lg": 3rem,
+	"md": 1.5rem,
+	"sm": 1rem,
+	"xsm": 0.8rem
+);
+
+//Function in scss
+@function font-w($fn) {
+	@return map-get($font-weight, $fn);
+}
+
+//Using of mixing
+@mixin flexD($direction) {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true) {
+	@if $light-theme {
+		background: lighten($primary-color, 100%);
+		color: lighten($text-color, 100%);
+	}
+}
+
+// Creating of media Query Using Mixin
+@mixin mobile {
+	@media screen and (max-width: $mobile) {
+		@content;
+	}
+}
+
+//Nesting in scss
+
+body {
+	@include theme(false);
+}
+
+.main {
+	@include flexD(column);
+	width: 90%;
+	margin: 0 auto;
+
+	& .lead {
+		font-size: font-w(medium);
+		@include mobile {
+			color: green;
+		}
+
+		&:hover {
+			color: $light-color;
+		}
+	}
+
+	@include mobile {
+		flex-direction: row;
+	}
+}
