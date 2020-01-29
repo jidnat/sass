@@ -1,0 +1,26 @@
+.contacts {
+	height: 100%;
+	padding-top: 27vh;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: linear-gradient(
+			to right,
+			rgba($primary-color, 0.9),
+			rgba($primary-color, 0.3)
+		),
+		url("../images/model-1.jpg") no-repeat center/cover;
+	text-transform: capitalize;
+
+	h2 {
+		font-size: 3rem;
+		margin-bottom: 2rem;
+	}
+	&_list {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 0.1rem;
+		font-size: 1.2rem;
+	}
+}

@@ -1,0 +1,54 @@
+//colors
+$a-primary-color: #ccc;
+$a-primary-color-hover: #fff;
+$primary-color: #272727;
+$secondary-color: #ff652f;
+
+//Default settings
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+	color: $a-primary-color;
+
+	&:hover {
+		color: $a-primary-color-hover;
+	}
+}
+
+ul {
+	list-style-type: none;
+}
+
+//  Mixins section
+@mixin transition-ease {
+	transition: all 0.5s ease-in-out;
+}
+
+@mixin media-md {
+	@media screen and (min-width: 768px) {
+		@content;
+	}
+}
+@mixin media-lg {
+	@media screen and (min-width: 1024px) {
+		@content;
+	}
+}
+@mixin media-xl {
+	@media screen and (min-width: 1600px) {
+		@content;
+	}
+}
+
+// Functions Section
+@function set-text-color($color) {
+	@if (lightness($color) > 40%) {
+		@return #000;
+	} @else {
+		@return #fff;
+	}
+}

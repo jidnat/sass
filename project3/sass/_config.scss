@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css?family=Bitter|Monoton&display=swap");
+
+//Colors
+$primary-color: #267e8d;
+$secondary-color: #af3e15;
+$dark-color: #343a40;
+$light-color: #f4f4f4;
+$danger-color: #dc3545;
+$success-color: #0ece3b;
+
+//Default Settings
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+ul {
+	list-style: none;
+}
+img {
+	width: 100%;
+	height: 100%;
+}
+
+//Utility Classes
+
+//Setting of text-color
+@mixin set-text-color($bg-color) {
+	@if (lightness($bg-color) > 60) {
+		background: $bg-color;
+		color: $dark-color;
+	} @else {
+		background: $bg-color;
+		color: $light-color;
+	}
+}
+
+//Centering of Items
+@mixin center {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+//Sliding of images
+@mixin slider-animate {
+	animation: slider 100s infinite ease-in-out;
+}
+@keyframes slider {
+	0% {
+		background-image: url(../images/image2.jpg);
+	}
+	10% {
+		background-image: url(../images/image3.jpg);
+	}
+	20% {
+		background-image: url(../images/image4.jpg);
+	}
+	30% {
+		background-image: url(../images/image5.jpg);
+	}
+	40% {
+		background-image: url(../images/image6.jpg);
+	}
+	50% {
+		background-image: url(../images/image7.jpg);
+	}
+	60% {
+		background-image: url(../images/image8.jpg);
+	}
+	70% {
+		background-image: url(../images/image9.jpg);
+	}
+	80% {
+		background-image: url(../images/image10.jpg);
+	}
+	90% {
+		background-image: url(../images/image11.jpg);
+	}
+	100% {
+		background-image: url(../images/image12.jpg);
+	}
+}
+
+//Title class
+.title {
+	@include center;
+	@include set-text-color($secondary-color);
+	text-shadow: 2px 1.5px 0 rgba(0, 0, 0, 0.8);
+	width: 100%;
+	text-transform: uppercase;
+	font-size: 1.5rem;
+}
+
+//Buttons
+.btn {
+	padding: 0.5rem 1rem;
+	border-radius: 7px;
+	font-weight: 700;
+
+	&-primary {
+		@include set-text-color($primary-color);
+
+		&:hover {
+			background: darken($primary-color, 20%);
+		}
+	}
+	&-secondary {
+		@include set-text-color($secondary-color);
+
+		&:hover {
+			background: darken($secondary-color, 20%);
+		}
+	}
+	&-success {
+		@include set-text-color($success-color);
+
+		&:hover {
+			background: darken($success-color, 20%);
+		}
+	}
+	&-light {
+		@include set-text-color($light-color);
+
+		&:hover {
+			background: darken($light-color, 20%);
+		}
+	}
+	&-danger {
+		@include set-text-color($danger-color);
+
+		&:hover {
+			background: darken($danger-color, 20%);
+		}
+	}
+	&-dark {
+		@include set-text-color($dark-color);
+
+		&:hover {
+			background: lighten($dark-color, 20%);
+		}
+	}
+}
+
+//Media Queries
+@mixin media-sm {
+	@media screen and (max-width: 650px) {
+		@content;
+	}
+}
+
+//Adding of Padding and Magin Classes
+$spaceamounts: (0.5, 1, 2, 3, 4, 5);
+
+@each $space in $spaceamounts {
+	//All around margin
+	.m-#{$space} {
+		margin: #{$space}rem;
+	}
+
+	//Vertical Margin
+	.my-#{$space} {
+		margin: #{$space}rem 0;
+	}
+
+	//All around padding
+	.p-#{$space} {
+		padding: #{$space}rem;
+	}
+
+	//Vertical padding
+	.py-#{$space} {
+		padding: #{$space}rem 0;
+	}
+}

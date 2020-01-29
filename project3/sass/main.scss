@@ -1,0 +1,10 @@
+@import "config";
+@import "header";
+@import "mainb";
+@import "footer";
+
+body {
+	@include set-text-color(#ccc);
+	line-height: 1.5;
+	font-family: "Bitter", serif;
+}

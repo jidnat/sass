@@ -1,0 +1,42 @@
+main {
+	display: block;
+	position: relative;
+
+	.container {
+		width: 98%;
+		margin: 0.2rem auto;
+		display: flex;
+		@include set-text-color($dark-color);
+		height: 260px;
+		.img-set {
+			flex: 4;
+			flex-basis: 40%;
+		}
+		.info-set {
+			position: relative;
+			flex: 6;
+			flex-basis: 55%;
+			margin-left: 0.6rem;
+
+			p {
+				padding: 0.3rem 0;
+				text-transform: uppercase;
+				letter-spacing: 0.9px;
+				font-size: 0.8rem;
+
+				span {
+					text-transform: uppercase;
+					color: #ccc;
+					font-size: 0.8rem;
+					font-weight: 400;
+					font-style: italic;
+				}
+			} 
+			a {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+		}
+	}
+}

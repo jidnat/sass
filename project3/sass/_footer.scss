@@ -1,0 +1,49 @@
+footer {
+	margin-top: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	@include set-text-color($primary-color);
+	background: darken($primary-color, 40%);
+
+	.copyright {
+		margin-left: 2rem;
+		text-transform: uppercase;
+	}
+
+	.social-links {
+		margin-right: 2rem;
+
+		i {
+			margin: 0 0.5rem;
+			outline: none;
+		}
+		.fa-envelope {
+			color: #bbb;
+
+			&:hover {
+				color: darken(#bbb, 20%);
+			}
+		}
+		.fa-facebook {
+			color: #3b5998;
+
+			&:hover {
+				color: darken(#3b5998, 20%);
+			}
+		}
+		.fa-twitter {
+			color: #1da1f2;
+
+			&:hover {
+				color: darken(#1da1f2, 20%);
+			}
+		}
+		.fa-whatsapp {
+			color: #1ebea5;
+
+			&:hover {
+				color: darken(#1ebea5, 20%);
+			}
+		}
+	}
+}
